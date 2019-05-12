@@ -1,10 +1,11 @@
 #include<stdlib.h>
 
-typedef struct Pilha
-{
+typedef struct Pilha pilha;
+
+struct Pilha{
     int valor;
     pilha *prox;
-} pilha;
+};
 
 pilha *topo=NULL;
 
@@ -13,11 +14,28 @@ int vazia(pilha *p){
     return 0;
 }
 
-int empilha(int valor){
-    pilha *tmp = topo;
-    tmp->prox = topo;
+//cria um no para a pilha. retorna NULL se falhar na criação
+pilha* criaPilha(){
+    pilha *tmp = (pilha*) malloc(sizeof(pilha*));
+    if(!tmp) return NULL;
+    return tmp;
+}
+
+void imprimePilha(pilha *valor){
+    pilha *tmp;
+    if(vazia(valor)) printf("pilha vazia\n");
+    else for(tmp = valor; !tmp; tmp = tmp->prox) printf("valor: %4d\n", tmp->valor);
+    //else printf("valor: %4d\n", tmp->valor);
+}
+
+int empilha(int valor, pilha *pPilha){
+    pilha *tmp = (pilha *) malloc(sizeof(pilha));
+    if(!tmp) return 1;
+    
     tmp->valor = valor;
-    topo = tmp;
+    tmp->prox = pPilha;
+    pPilha = tmp;
+
     return 0;
 }
 
