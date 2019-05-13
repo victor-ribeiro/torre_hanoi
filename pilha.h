@@ -2,6 +2,6 @@
 
 int vazia(pilha*);
 int empilha(int, pilha **);
-int desempilha(pilha*);
+int desempilha(pilha**);
 pilha* criaPilha();
-void imprimePilha(pilha);
+void imprimePilha(pilha*);

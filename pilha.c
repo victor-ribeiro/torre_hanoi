@@ -13,16 +13,16 @@ int vazia(pilha *p){
 
 //cria um no para a pilha. retorna NULL se falhar na criação
 pilha* criaPilha(){
-    return (pilha*) malloc(sizeof(pilha*));
+    return NULL;
 }
 
-void imprimePilha(pilha no){
-    pilha *tmp=&no;
-    if(vazia(&no)){ 
-        printf("pilha vazia\n");
-        return;
+void imprimePilha(pilha *no){
+    pilha *tmp=no;
+    if(vazia(no)) printf("pilha vazia\n");
+    else while(tmp){
+        printf("valor: %4d\n", tmp->valor);
+        tmp = tmp->prox;
     }
-    for(tmp = &no; !tmp; tmp = tmp->prox) printf("valor: %4d\n", tmp->valor);
 }
 
 int empilha(int valor, pilha **pPilha){
@@ -34,9 +34,11 @@ int empilha(int valor, pilha **pPilha){
     return 0;
 }
 
-int desempilha(pilha *p){
-    if(!p) return 1;
-    // pilha *tmp = topo;
-    // topo = tmp->prox;
-    // free(tmp);
+int desempilha(pilha **p){
+    if(p){
+        pilha *tmp = *p;
+        *p = (*p)->prox;
+        free(tmp);
+    }
+
 }

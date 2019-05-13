@@ -2,14 +2,17 @@
 #include"pilha.h"
 
 int main(){
+    /*
+    *
+    * empilha e desempilha funcionando.
+    * 
+    */
     pilha *a = criaPilha();
-    imprimePilha(*a);
-
-    empilha(5, &a);
-    empilha(554, &a);
-    empilha(55, &a);
+    for(int i = 1; i < 10; empilha(i++, &a));
+    imprimePilha(a);
     
-    imprimePilha(*a);
-    
+    for(int i = 1; i < 10; i++) desempilha(&a) ;
+    printf("\n\n");
+    imprimePilha(a);
     return 0;
 }
