@@ -2,17 +2,14 @@
 #include"pilha.h"
 
 int main(){
-    pilha *a = topo;
+    pilha *a = criaPilha();
+    imprimePilha(*a);
 
-    empilha(5, a);
-    empilha(52, a);
-    empilha(532, a);
+    empilha(5, &a);
+    empilha(554, &a);
+    empilha(55, &a);
     
-    printf("%d\n", a->valor);
-//    printf("%d\n", a->prox->valor);
-//    printf("%d\n", a->prox->prox->valor);
-
-    imprimePilha(a);
-
+    imprimePilha(*a);
+    
     return 0;
 }

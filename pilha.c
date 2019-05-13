@@ -7,41 +7,36 @@ struct Pilha{
     pilha *prox;
 };
 
-pilha *topo=NULL;
-
 int vazia(pilha *p){
-    if(!p) return 1; //pilha vazia
-    return 0;
+    return !p;
 }
 
 //cria um no para a pilha. retorna NULL se falhar na criação
 pilha* criaPilha(){
-    pilha *tmp = (pilha*) malloc(sizeof(pilha*));
-    if(!tmp) return NULL;
-    return tmp;
+    return (pilha*) malloc(sizeof(pilha*));
 }
 
-void imprimePilha(pilha *valor){
-    pilha *tmp;
-    if(vazia(valor)) printf("pilha vazia\n");
-    else for(tmp = valor; !tmp; tmp = tmp->prox) printf("valor: %4d\n", tmp->valor);
-    //else printf("valor: %4d\n", tmp->valor);
+void imprimePilha(pilha no){
+    pilha *tmp=&no;
+    if(vazia(&no)){ 
+        printf("pilha vazia\n");
+        return;
+    }
+    for(tmp = &no; !tmp; tmp = tmp->prox) printf("valor: %4d\n", tmp->valor);
 }
 
-int empilha(int valor, pilha *pPilha){
-    pilha *tmp = (pilha *) malloc(sizeof(pilha));
+int empilha(int valor, pilha **pPilha){
+    pilha *tmp = ( pilha * ) malloc( sizeof( pilha ) );
     if(!tmp) return 1;
-    
     tmp->valor = valor;
-    tmp->prox = pPilha;
-    pPilha = tmp;
-
+    tmp->prox = *pPilha;
+    *pPilha = tmp;
     return 0;
 }
 
 int desempilha(pilha *p){
     if(!p) return 1;
-    pilha *tmp = topo;
-    topo = tmp->prox;
-    free(tmp);
+    // pilha *tmp = topo;
+    // topo = tmp->prox;
+    // free(tmp);
 }
