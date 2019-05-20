@@ -3,19 +3,21 @@
 #include"pilha.h"
 #include"torre.h"
 
-#define TAM 3
-
 pilha *a;
 pilha *b;
 pilha *c;
 
 int main(){
+    int nDiscos;
+
+    printf("informe o numero de discos: ");
+    scanf("%d", &nDiscos);
 
     a = criaPilha();
     b = criaPilha();
     c = criaPilha();
 
-    for(int i = TAM; i > 0; empilha(i--, &a)); //inicia a pilha
+    for(int i = nDiscos; i > 0; empilha(i--, &a)); //inicia a pilha
 
     printf("Torre A:\n");
     imprimePilha(a);
@@ -26,6 +28,6 @@ int main(){
     printf("\n\n");
 
 
-    resolveTorre(TAM, &a, &b, &c);
+    resolveTorre(nDiscos, &a, &b, &c);
     return 0;
 }
