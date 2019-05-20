@@ -1,5 +1,3 @@
-#include<stdlib.h>
-
 typedef struct Pilha pilha;
 
 struct Pilha{
@@ -35,10 +33,9 @@ int empilha(int valor, pilha **pPilha){
 }
 
 int desempilha(pilha **p){
-    if(p){
-        pilha *tmp = *p;
-        *p = (*p)->prox;
-        free(tmp);
-    }
-
+    if(!p) return -1;
+    pilha *tmp = *p;
+    *p = (*p)->prox;
+    free(tmp);
+    return 0;
 }
