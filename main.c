@@ -10,12 +10,21 @@ pilha *b;
 pilha *c;
 
 int main(){
-    
+
     a = criaPilha();
     b = criaPilha();
     c = criaPilha();
 
-    for(int i = TAM; i > 0; empilha(i--, &a));
+    for(int i = TAM; i > 0; empilha(i--, &a)); //inicia a pilha
+
+    printf("Torre A:\n");
+    imprimePilha(a);
+    printf("Torre B:\n");
+    imprimePilha(b);
+    printf("Torre C:\n");
+    imprimePilha(c);
+    printf("\n\n");
+
 
     resolveTorre(TAM, &a, &b, &c);
     return 0;
