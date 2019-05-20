@@ -5,16 +5,17 @@ int transfere(pilha **origem, pilha **destino, int valor_destino){
 }
 
 int resolveTorre(int n, pilha **origem, pilha **aux, pilha **destino){
-    if(!origem) return 1; //origem vazia
+    extern pilha *a, *b,  *c;
+    if(!origem) return -1; //origem vazia
     if(n==1){
-        transfere(origem, aux,     (*origem)->valor);
-        transfere(aux,    destino, (*aux)->valor   );
-        printf("Torre A: ");
-        imprimePilha(*origem);
-        printf("Torre B: ");
-        imprimePilha(*aux);
-        printf("Torre C: ");
-        imprimePilha(*destino);
+        transfere(origem, destino, (*origem)->valor);
+        printf("Torre A:\n");
+        imprimePilha(a);
+        printf("Torre B:\n");
+        imprimePilha(b);
+        printf("Torre C:\n");
+        imprimePilha(c);
+        printf("\n\n");
     }
     else{
         resolveTorre(n-1, origem, destino, aux);

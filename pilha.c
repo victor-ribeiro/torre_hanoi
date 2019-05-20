@@ -18,7 +18,7 @@ void imprimePilha(pilha *no){
     pilha *tmp=no;
     if(vazia(no)) printf("pilha vazia\n");
     else while(tmp){
-        printf("valor: %4d\n", tmp->valor);
+        printf("%4d\n", tmp->valor);
         tmp = tmp->prox;
     }
 }

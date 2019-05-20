@@ -5,18 +5,18 @@
 
 #define TAM 3
 
-int main(){
-    /*
-    * empilha e desempilha funcionando.
-    */
-    pilha *a = criaPilha();
-    pilha *b = criaPilha();
-    pilha *c = criaPilha();
+pilha *a;
+pilha *b;
+pilha *c;
 
-    for(int i = 1; i < TAM; empilha(i++, &a));
+int main(){
+    
+    a = criaPilha();
+    b = criaPilha();
+    c = criaPilha();
+
+    for(int i = TAM; i > 0; empilha(i--, &a));
 
     resolveTorre(TAM, &a, &b, &c);
-    printf("\n\n");
-    imprimePilha(a);
     return 0;
 }
